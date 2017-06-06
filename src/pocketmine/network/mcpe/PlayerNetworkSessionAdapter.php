@@ -96,7 +96,7 @@ class PlayerNetworkSessionAdapter extends BaseNetworkSession{
 
 		$this->server->getPluginManager()->callEvent($ev = new DataPacketReceiveEvent($this->player, $packet));
 		if(!$ev->isCancelled() and !$packet->handle($this)){
-			$this->server->getLogger()->debug("Unhandled " . $packet->getName() . " received from " . $this->getName() . ": 0x" . bin2hex($packet->buffer));
+			$this->server->getLogger()->debug("Unhandled " . $packet->getName() . " received from " . $this->player->getName() . ": 0x" . bin2hex($packet->buffer));
 		}
 
 		$timings->stopTiming();
@@ -188,6 +188,10 @@ class PlayerNetworkSessionAdapter extends BaseNetworkSession{
 
 	public function handleBlockEntityData(BlockEntityDataPacket $packet) : bool{
 		return $this->player->handleBlockEntityData($packet);
+	}
+
+	public function handlePlayerInput(PlayerInputPacket $packet) : bool{
+		return $this->player->handlePlayerInput($packet);
 	}
 
 	public function handleSetPlayerGameType(SetPlayerGameTypePacket $packet) : bool{

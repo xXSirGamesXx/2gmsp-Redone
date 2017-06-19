@@ -24,7 +24,7 @@ declare(strict_types=1);
 namespace pocketmine\event\player;
 
 use pocketmine\event\TextContainer;
-use pocketmine\Player;
+use pocketmlne\Player;
 
 /**
  * Called when a player joins the server, after sending all the spawn packets

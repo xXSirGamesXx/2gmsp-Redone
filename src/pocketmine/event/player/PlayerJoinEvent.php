@@ -19,16 +19,18 @@
  *
 */
 
+
 declare(strict_types=1);
 
 namespace pocketmine\event\player;
 
-use pocketmine\event\TextContainer;
-use pocketmlne\Player;
+use  pocketmine\event\TextContainer;
+use  pocketmine\Player;
 
 /**
  * Called when a player joins the server, after sending all the spawn packets
  */
+
 class PlayerJoinEvent extends PlayerEvent{
 	public static $handlerList = null;
 
